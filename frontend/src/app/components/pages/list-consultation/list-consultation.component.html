@@ -1,0 +1,46 @@
+<div class="header-title">
+  <h1>Consulta Clínica</h1>
+
+  <app-button (handleClick)="openModal('form-new-consultation')" icon="+" title="Nova Consulta"></app-button>
+</div>
+
+<div>
+  <table>
+    <thead>
+      <th>Especialidade</th>
+      <th>Profissional</th>
+      <th>Data</th>
+      <th>Hora</th>
+      <th></th>
+    </thead>
+    <tr *ngIf="consultations.length === 0">
+      <td colspan="5" class="no-rows">Nenhuma consulta marcada até o momento</td>
+    </tr>
+    <tr *ngIf="loading">
+      <td colspan="5" class="no-rows">Carregando...</td>
+    </tr>
+    <tr *ngFor = "let consultation of consultations" class="row">
+      <td style="width: 20%">{{ consultation.medico.especialidade.nome }}</td>
+      <td style="width: 25%">{{ consultation.medico.nome }}</td>
+      <td style="width: 20%">{{ consultation.dia | date: 'dd/MM/yyyy' }}</td>
+      <td style="width: 20%">{{ consultation.horario }}</td>
+      <td style="width: 15%">
+        <app-button (handleClick)="showModalDialogDesmarcar('modal-dialog-desmarcar', consultation)"
+                    [isLink]="true" icon="X" title="Desmarcar"></app-button>
+      </td>
+    </tr>
+  </table>
+</div>
+
+<app-new-consultation></app-new-consultation>
+
+<modal id="modal-dialog-desmarcar">
+  <div class="modal-header">
+    <h3>Deseja desmarcar a consulta ?</h3>
+  </div>
+
+  <div class="actions">
+    <app-button (handleClick)="closeModal('modal-dialog-desmarcar')" title="Não"></app-button>
+    <app-button (handleClick)="removeConsultation()" title="Desmarcar"></app-button>
+  </div>
+</modal>

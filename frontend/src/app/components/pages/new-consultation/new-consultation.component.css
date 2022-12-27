@@ -1,0 +1,14 @@
+modal .modal-header {
+  border-bottom: none !important;
+}
+
+modal .modal-header h3 {
+  font-weight: 700 !important;
+  color: #444444;
+  font-size: 24px;
+}
+
+modal .modal-body {
+  margin-top: 10px;
+  padding: 10px;
+}

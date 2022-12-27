@@ -1,0 +1,38 @@
+
+<modal id="form-new-consultation">
+  <div class="modal-header modal-title">
+    <h3>Nova Consulta</h3>
+  </div>
+
+  <div class="modal-body">
+    <form>
+      <div class="form-group">
+        <app-select-specialty (onChangeSpecialty)="onChangeSpecialty($event)"></app-select-specialty>
+      </div>
+
+      <div class="form-group">
+        <app-select-doctor (onChangeDoctor)="onChangeDoctor($event)"
+                           specialtyId="{{ specialtyId }}"></app-select-doctor>
+      </div>
+
+      <div class="form-group">
+        <app-select-agenda (onChangeAgenda)="onChangeAgenda($event)"
+                           doctorId="{{ doctorId }}"
+                           specialtyId="{{ specialtyId }}"></app-select-agenda>
+      </div>
+
+      <div class="form-group">
+        <select name="horario" id="horario" [disabled]="isDisabledHorario"
+                [(ngModel)]="horario" (ngModelChange)="onSelectHorario($event)">
+          <option value="" disabled selected>Horário</option>
+          <option *ngFor="let item of agenda?.horarios" [value]="item">{{ item }}</option>
+        </select>
+      </div>
+    </form>
+  </div>
+
+  <div class="actions">
+    <app-button (handleClick)="closeModal(keyModal)" title="Cancelar"></app-button>
+    <app-button (handleClick)="onConfirm()" title="Confirmar"></app-button>
+  </div>
+</modal>

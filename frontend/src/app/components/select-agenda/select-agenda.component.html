@@ -1,0 +1,7 @@
+<select name="doctor" id="doctor"
+        [disabled]="isDisabled"
+        [(ngModel)]="agenda" (ngModelChange)="onSelectAgenda($event)">
+  <option *ngIf="loading">Carregando...</option>
+  <option value="" disabled selected>Agenda</option>
+  <option *ngFor="let item of agendas" [ngValue]="item">{{ item.dia | date: 'dd/MM/yyyy' }}</option>
+</select>

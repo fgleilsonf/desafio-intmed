@@ -1,0 +1,52 @@
+
+.header-title {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 20px;
+}
+
+.header-title h1 {
+  font-weight: 600;
+  font-size: 22px;
+  color: #444444;
+}
+
+table {
+  width: 100%;
+  border: none;
+  border-collapse: collapse;
+}
+
+thead th {
+  text-align: left;
+  padding: 20px;
+
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 14px;
+  text-transform: uppercase;
+
+  color: #A8A8A8;
+}
+
+tr.row td {
+  padding: 20px;
+}
+
+tr td {
+  color: #444444;
+  font-weight: 400;
+  font-size: 16px;
+}
+
+tr:nth-child(odd){
+  background-color: #F8F8F8;
+}
+
+tr td.no-rows {
+  text-align: center;
+  font-weight: 600;
+  font-size: 18px;
+  font-style: italic;
+}

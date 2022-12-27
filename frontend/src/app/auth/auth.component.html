@@ -1,0 +1,55 @@
+<div class="container">
+  <div class="login">
+    <img src="/assets/logo.png" alt="Logo" class="logo" />
+    <h2 *ngIf="!isLogin">Crie sua conta</h2>
+    <form [formGroup]="authForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <input
+          *ngIf="!isLogin"
+          name="name"
+          type="text"
+          placeholder="Nome"
+          formControlName="name"
+          required
+        />
+      </div>
+      <div class="form-group">
+        <input
+          name="username"
+          type="text"
+          placeholder="{{ isLogin ? 'Email ou Login' : 'Email' }}"
+          formControlName="username"
+          required
+        />
+      </div>
+      <div class="form-group">
+        <input
+          name="password"
+          type="password"
+          placeholder="Senha"
+          formControlName="password"
+          required
+        />
+      </div>
+
+      <div class="form-group">
+        <input
+          *ngIf="!isLogin"
+          name="confirmPassword"
+          type="password"
+          placeholder="Confirmar senha"
+          formControlName="confirm"
+          required
+        />
+      </div>
+
+      <div class="actions">
+        <a href="" (click)="isLogin = !isLogin">
+          {{isLogin ? "Criar conta" : "Cancelar"}}
+        </a>
+
+        <input type="submit" value="{{ isLogin ? 'Acessar' : 'Confirmar' }}" />
+      </div>
+    </form>
+  </div>
+</div>

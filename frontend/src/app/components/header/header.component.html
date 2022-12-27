@@ -1,0 +1,21 @@
+<nav>
+  <a class="brand" routerLink="/">
+    <img src="/assets/logo.png" alt="Medicar">
+  </a>
+
+  <ul class="links">
+    <li id="username"><a routerLink="/">{{ username }}</a></li>
+    <li id="logout"><a (click)="showModal(keyModal)">Desconectar</a></li>
+  </ul>
+</nav>
+
+<modal id="{{ keyModal }}">
+  <div class="modal-header">
+    <h3>Deseja desconcetar da aplicação ?</h3>
+  </div>
+
+  <div class="actions">
+    <app-button (handleClick)="closeModal(keyModal)" title="Cancelar"></app-button>
+    <app-button (handleClick)="logout()" title="Confirmar"></app-button>
+  </div>
+</modal>

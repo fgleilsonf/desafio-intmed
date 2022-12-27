@@ -1,0 +1,3 @@
+<button (click)="onHandleClick()" class="{{ isLink ? 'custom-link' : 'custom-button' }}" type="button">
+  <span *ngIf="icon" class="icon">{{ icon }}</span> {{ title }}
+</button>

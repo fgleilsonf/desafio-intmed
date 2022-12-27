@@ -1,0 +1,6 @@
+<select name="doctor" id="doctor" [disabled]="disabled"
+        [(ngModel)]="doctor" (ngModelChange)="onSelectDoctor($event)">
+  <option *ngIf="loading">Carregando...</option>
+  <option value="" disabled selected>Médico</option>
+  <option *ngFor="let item of doctors" [ngValue]="item">{{ item.nome }}</option>
+</select>
