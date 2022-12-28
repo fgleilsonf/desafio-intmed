@@ -18,6 +18,7 @@ import { SelectSpecialtyComponent } from './components/select-specialty/select-s
 import { SelectDoctorComponent } from './components/select-doctor/select-doctor.component';
 import { SelectAgendaComponent } from './components/select-agenda/select-agenda.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { InputPasswordComponent } from './components/ui/input-password/input-password.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     SelectSpecialtyComponent,
     SelectDoctorComponent,
     SelectAgendaComponent,
-    SelectAgendaComponent
+    SelectAgendaComponent,
+    InputPasswordComponent
   ],
   imports: [
     BrowserModule,

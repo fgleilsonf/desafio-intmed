@@ -1,6 +1,7 @@
 import { Component, Output, EventEmitter, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../auth.service';
+import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 
 @Component({
   selector: 'app-auth',
@@ -16,6 +17,10 @@ export class AuthComponent {
     confirmPassword: [''],
   });
   isLogin = true;
+  faEye = faEye;
+  faEyeSlash = faEyeSlash;
+  showPassword: boolean = false;
+  showPasswordConfirm: boolean = false;
 
   constructor(private fb: FormBuilder, private auth: AuthService) {
   }
@@ -34,14 +39,18 @@ export class AuthComponent {
     this.authForm.reset();
   }
 
+  changeViewPassword() {
+    this.showPassword = !this.showPassword;
+  }
+
+  changeViewPasswordConfirm() {
+    this.showPasswordConfirm = !this.showPasswordConfirm;
+  }
+
   onSubmit() {
-    console.log('onSubmit');
     if (this.authForm.invalid) {
-      console.log('onSubmit this.authForm.invalid', this.authForm.invalid);
       Object.keys(this.authForm.controls).forEach(field => {
-        console.log('onSubmit this.authForm.field', field);
         const control = this.authForm.get(field);
-        console.log('onSubmit this.authForm.control', control);
         control?.markAsTouched({onlySelf: true});
       });
 

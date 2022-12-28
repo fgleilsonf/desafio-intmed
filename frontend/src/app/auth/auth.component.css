@@ -33,3 +33,27 @@ div.actions {
   align-items: center;
   justify-content: space-between;
 }
+
+
+.input-icons .icon {
+  position: absolute;
+}
+
+.input-icons {
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.icon {
+  padding: 10px;
+  margin-left: -40px;
+  color: #A8A8A8;
+  cursor: pointer;
+}
+
+.input-field {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 3px;
+  text-indent: 0px;
+}

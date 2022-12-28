@@ -4,6 +4,7 @@ import { Doctor } from "../../../Doctor";
 import { Agenda } from "../../../Agenda";
 import { ConsultationService } from "../../../services/consultation.service";
 import { Consultation } from "../../../Consultation";
+import { FormBuilder, Validators } from "@angular/forms";
 
 @Component({
   selector: 'app-new-consultation',
@@ -12,6 +13,14 @@ import { Consultation } from "../../../Consultation";
 })
 export class NewConsultationComponent implements OnInit {
   keyModal = 'form-new-consultation';
+
+  consultationForm = this.fb.group({
+    specialtyId: ['', Validators.required],
+    doctorId: ['', Validators.required],
+    agenda: ['', Validators.required],
+    horario: ['', Validators.required],
+  });
+
   agenda: Agenda | null = null;
   specialtyId: string = '';
   doctorId: string = '';
@@ -21,7 +30,7 @@ export class NewConsultationComponent implements OnInit {
   isDisabledHorario: boolean = true;
   @Output() refreshList: EventEmitter<any> = new EventEmitter();
 
-  constructor(private modalService: ModalService, private consultationService: ConsultationService) {
+  constructor(private modalService: ModalService, private consultationService: ConsultationService, private fb: FormBuilder) {
   }
 
   ngOnInit(): void {}

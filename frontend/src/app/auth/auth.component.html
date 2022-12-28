@@ -37,38 +37,49 @@
           </div>
         </div>
       </div>
+
       <div class="form-group">
-        <input
-          [ngClass]="authForm.controls['password'].errors?.['required'] ? 'has-error' : ''"
-          name="password"
-          type="password"
-          placeholder="Senha"
-          formControlName="password"
-          required
-        />
-        <div
-          *ngIf="authForm.controls['password'].invalid && (authForm.controls['password'].dirty || authForm.controls['password'].touched)"
-          class="invalid-feedback">
-          <div *ngIf="authForm.controls['password'].errors?.['required']">
-            O campo senha é obrigatório
+        <div class="input-icons">
+          <input
+            [ngClass]="authForm.controls['password'].errors?.['required'] ? 'has-error' : ''"
+            class="input-field"
+            name="password"
+            [type]="showPassword ?  'text' : 'password'"
+            placeholder="Senha"
+            formControlName="password"
+            required
+          />
+          <fa-icon (click)="changeViewPassword()" class="icon" [icon]="showPassword ? faEyeSlash : faEye"></fa-icon>
+          <div
+            *ngIf="authForm.controls['password'].invalid && (authForm.controls['password'].dirty || authForm.controls['password'].touched)"
+            class="invalid-feedback">
+            <div *ngIf="authForm.controls['password'].errors?.['required']">
+              O campo senha é obrigatório!
+            </div>
           </div>
         </div>
       </div>
 
       <div class="form-group" *ngIf="!isLogin">
-        <input
-          [ngClass]="authForm.controls['confirmPassword'].errors?.['required'] ? 'has-error' : ''"
-          name="confirmPassword"
-          type="password"
-          placeholder="Confirmar senha"
-          formControlName="confirmPassword"
-          [required]="!isLogin"
-        />
-        <div
-          *ngIf="authForm.controls['confirmPassword'].invalid && (authForm.controls['confirmPassword'].dirty || authForm.controls['confirmPassword'].touched)"
-          class="invalid-feedback">
-          <div *ngIf="authForm.controls['confirmPassword'].errors?.['required']">
-            O campo confirmar é obrigatório
+        <div class="input-icons">
+          <input
+            [ngClass]="authForm.controls['confirmPassword'].errors?.['required'] ? 'has-error' : ''"
+            class="input-field"
+            name="confirmPassword"
+            [type]="showPasswordConfirm ?  'text' : 'password'"
+            placeholder="Confirmar senha"
+            formControlName="confirmPassword"
+            required
+          />
+          <fa-icon
+            (click)="changeViewPasswordConfirm()"
+            class="icon" [icon]="showPasswordConfirm ? faEyeSlash : faEye"></fa-icon>
+          <div
+            *ngIf="authForm.controls['confirmPassword'].invalid && (authForm.controls['confirmPassword'].dirty || authForm.controls['confirmPassword'].touched)"
+            class="invalid-feedback">
+            <div *ngIf="authForm.controls['confirmPassword'].errors?.['required']">
+              O campo confirmar senha é obrigatório!
+            </div>
           </div>
         </div>
       </div>
