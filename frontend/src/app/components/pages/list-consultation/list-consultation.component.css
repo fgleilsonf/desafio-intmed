@@ -45,8 +45,14 @@ tr:nth-child(odd){
 }
 
 tr td.no-rows {
+  padding: 20px;
   text-align: center;
+  font-size: 20px;
   font-weight: 600;
-  font-size: 18px;
   font-style: italic;
+  color: #545252;
+}
+
+tr td.no-rows p {
+  margin-top: 10px;
 }

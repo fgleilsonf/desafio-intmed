@@ -17,6 +17,7 @@ import { ButtonComponent } from './components/ui/button/button.component';
 import { SelectSpecialtyComponent } from './components/select-specialty/select-specialty.component';
 import { SelectDoctorComponent } from './components/select-doctor/select-doctor.component';
 import { SelectAgendaComponent } from './components/select-agenda/select-agenda.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { SelectAgendaComponent } from './components/select-agenda/select-agenda.
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    FontAwesomeModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JWTService, multi: true },

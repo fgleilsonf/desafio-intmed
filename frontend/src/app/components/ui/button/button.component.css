@@ -10,6 +10,8 @@ button {
   border-radius: 4px;
   padding: 8px 12px;
   font-size: 14px;
+  background: #49B4BB;
+  color: #FFFFFF;
 }
 
 span.icon {
@@ -41,16 +43,13 @@ button.custom-link:hover {
 button[type="submit"] {
   width: 180px;
   height: 40px;
-  background: #49B4BB;
   border-radius: 8px;
   cursor: pointer;
   border: 1px solid #49B4BB;
 
   font-style: normal;
   font-weight: 700;
-  font-size: 18px;
   line-height: 21px;
-  color: #FFFFFF;
 }
 
 button[type="submit"]:hover {

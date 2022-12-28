@@ -1,9 +1,9 @@
-import {Component, OnInit} from '@angular/core';
-import {ModalService} from "../../../modal.service";
-import {SpecialtyService} from "../../../services/specialty.service";
-import {Specialty} from "../../../Specialty";
-import {Consultation} from "../../../Consultation";
-import {ConsultationService} from "../../../services/consultation.service";
+import { Component, OnInit } from '@angular/core';
+import { ModalService } from "../../../modal.service";
+import { Specialty } from "../../../Specialty";
+import { Consultation } from "../../../Consultation";
+import { ConsultationService } from "../../../services/consultation.service";
+import { faBookMedical } from "@fortawesome/free-solid-svg-icons";
 
 @Component({
   selector: 'app-list-consultation',
@@ -16,8 +16,10 @@ export class ListConsultationComponent implements OnInit {
   consultations: Consultation[] = [];
   currentItem: Consultation | null = null;
   loading: boolean = false;
+  faBookMedical = faBookMedical;
 
-  constructor(private modalService: ModalService, private consultationService: ConsultationService) { }
+  constructor(private modalService: ModalService, private consultationService: ConsultationService) {
+  }
 
   ngOnInit() {
     this.onLoadConsultation();
@@ -31,14 +33,13 @@ export class ListConsultationComponent implements OnInit {
     });
   }
 
-  async removeConsultation() {
-    await this.consultationService.remove(this.currentItem!.id).subscribe();
+  removeConsultation() {
+    this.consultationService.remove(this.currentItem!.id).subscribe(()=> {
+      this.modalService.open('modal-alert-success');
 
-    console.log('removeConsultation this.currentItem!.id',this.currentItem!.id);
-
-    this.modalService.close('modal-dialog-desmarcar');
-
-    this.onLoadConsultation();
+      this.modalService.close('modal-dialog-desmarcar');
+      this.onLoadConsultation();
+    });
   }
 
   openModal(id: string) {

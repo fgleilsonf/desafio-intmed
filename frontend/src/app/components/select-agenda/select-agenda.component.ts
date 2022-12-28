@@ -40,7 +40,6 @@ export class SelectAgendaComponent implements OnInit {
   }
 
   ngOnChanges(changes: SimpleChange) {
-    console.log('ngOnChanges this.specialtyId && this.doctorId', this.specialtyId, this.doctorId);
     if (this.specialtyId && this.doctorId) {
       this.loadAgendas();
     }

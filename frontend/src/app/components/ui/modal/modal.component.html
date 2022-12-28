@@ -1,4 +1,5 @@
 <div class="modal">
+  <button *ngIf="showClose" (click)="handleClose()" class="btn-close"><fa-icon [icon]="faTimes"></fa-icon></button>
   <div class="modal-body">
     <ng-content></ng-content>
   </div>

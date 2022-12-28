@@ -1,5 +1,14 @@
-import { Component, ViewEncapsulation, ElementRef, Input, OnInit, OnDestroy } from '@angular/core';
-
+import {
+  Component,
+  ViewEncapsulation,
+  ElementRef,
+  Input,
+  OnInit,
+  OnDestroy,
+  Output,
+  EventEmitter
+} from '@angular/core';
+import { faTimes } from "@fortawesome/free-solid-svg-icons";
 
 import {ModalService} from "../../../modal.service";
 
@@ -11,7 +20,10 @@ import {ModalService} from "../../../modal.service";
 })
 export class ModalComponent implements OnInit, OnDestroy {
   @Input() id!: string;
+  @Input() showClose: boolean = false;
+  @Output() onClose: EventEmitter<any> = new EventEmitter();
   private element: any;
+  faTimes = faTimes;
   constructor(private modalService: ModalService, private el: ElementRef) {
     this.element = el.nativeElement;
   }
@@ -45,5 +57,9 @@ export class ModalComponent implements OnInit, OnDestroy {
   close(): void {
     this.element.style.display = 'none';
     document.body.classList.remove('modal-open');
+  }
+
+  handleClose() {
+    this.onClose.emit();
   }
 }

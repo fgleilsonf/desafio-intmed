@@ -14,7 +14,10 @@
       <th></th>
     </thead>
     <tr *ngIf="consultations.length === 0">
-      <td colspan="5" class="no-rows">Nenhuma consulta marcada até o momento</td>
+      <td colspan="5" class="no-rows">
+        <fa-icon size="2x" [icon]="faBookMedical"></fa-icon>
+        <p>Nenhuma consulta marcada até o momento</p>
+      </td>
     </tr>
     <tr *ngIf="loading">
       <td colspan="5" class="no-rows">Carregando...</td>
@@ -42,5 +45,11 @@
   <div class="actions">
     <app-button (handleClick)="closeModal('modal-dialog-desmarcar')" title="Não"></app-button>
     <app-button (handleClick)="removeConsultation()" title="Desmarcar"></app-button>
+  </div>
+</modal>
+
+<modal id="modal-alert-success" [showClose]="true" (onClose)="closeModal('modal-alert-success')">
+  <div class="modal-header">
+    <h3>Consulta desmarcada com sucesso!</h3>
   </div>
 </modal>

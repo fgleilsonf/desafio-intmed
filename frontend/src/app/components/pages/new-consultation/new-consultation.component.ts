@@ -1,10 +1,9 @@
-import {Component, EventEmitter, OnChanges, OnInit, SimpleChange} from '@angular/core';
-import {ModalService} from "../../../modal.service";
-import {Specialty} from "../../../Specialty";
-import {Doctor} from "../../../Doctor";
-import {Agenda} from "../../../Agenda";
-import {ConsultationService} from "../../../services/consultation.service";
-import {Consultation} from "../../../Consultation";
+import { Component, OnInit, SimpleChange } from '@angular/core';
+import { ModalService } from "../../../modal.service";
+import { Doctor } from "../../../Doctor";
+import { Agenda } from "../../../Agenda";
+import { ConsultationService } from "../../../services/consultation.service";
+import { Consultation } from "../../../Consultation";
 
 @Component({
   selector: 'app-new-consultation',
@@ -13,22 +12,18 @@ import {Consultation} from "../../../Consultation";
 })
 export class NewConsultationComponent implements OnInit {
   keyModal = 'form-new-consultation';
-  agenda : Agenda | null = null;
-  specialtyId : string = '';
-  doctorId : string = '';
-  doctor : Doctor | null = null;
-  horario : string = '';
-  horarios : string[] = [];
-  isDisabledHorario : boolean = true;
+  agenda: Agenda | null = null;
+  specialtyId: string = '';
+  doctorId: string = '';
+  doctor: Doctor | null = null;
+  horario: string = '';
+  horarios: string[] = [];
+  isDisabledHorario: boolean = true;
 
-  constructor(private modalService: ModalService, private consultationService: ConsultationService) {}
-
-  ngOnInit(): void {
+  constructor(private modalService: ModalService, private consultationService: ConsultationService) {
   }
 
-  ngOnChanges(changes: SimpleChange) {
-    console.log('11 ngOnChanges this.specialtyId && this.doctorId', this.specialtyId, this.doctorId);
-  }
+  ngOnInit(): void {}
 
   closeModal(id: string) {
     this.specialtyId = '';
@@ -42,6 +37,7 @@ export class NewConsultationComponent implements OnInit {
     this.doctorId = value.id;
     this.isDisabledHorario = !(this.doctorId && this.specialtyId && this.agenda);
   }
+
   onChangeSpecialty(id: any) {
     this.specialtyId = id;
     this.isDisabledHorario = !(this.doctorId && this.specialtyId && this.agenda);
@@ -49,6 +45,7 @@ export class NewConsultationComponent implements OnInit {
 
   onChangeAgenda(value: any) {
     this.agenda = value;
+    this.horario = '';
     this.isDisabledHorario = !(this.doctorId && this.specialtyId && this.agenda);
   }
 
@@ -58,10 +55,10 @@ export class NewConsultationComponent implements OnInit {
 
   async onConfirm() {
     const payload = {
-        id: 0,
-        medico: this.doctor,
-        dia: this.agenda?.dia,
-        horario: this.horario,
+      id: 0,
+      medico: this.doctor,
+      dia: this.agenda?.dia,
+      horario: this.horario,
     } as Consultation;
 
     await this.consultationService.addConsultation(payload).subscribe();
