@@ -36,3 +36,10 @@
     <app-button (handleClick)="onConfirm()" title="Confirmar"></app-button>
   </div>
 </modal>
+
+<modal id="alert-success-add-consultation" [showClose]="true"
+       (onClose)="closeModal('alert-success-add-consultation')">
+  <div class="modal-header">
+    <h3>Consulta adicionada com sucesso!</h3>
+  </div>
+</modal>

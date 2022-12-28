@@ -1,4 +1,4 @@
-import { Component, OnInit, SimpleChange } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output, SimpleChange } from '@angular/core';
 import { ModalService } from "../../../modal.service";
 import { Doctor } from "../../../Doctor";
 import { Agenda } from "../../../Agenda";
@@ -19,6 +19,7 @@ export class NewConsultationComponent implements OnInit {
   horario: string = '';
   horarios: string[] = [];
   isDisabledHorario: boolean = true;
+  @Output() refreshList: EventEmitter<any> = new EventEmitter();
 
   constructor(private modalService: ModalService, private consultationService: ConsultationService) {
   }
@@ -61,9 +62,11 @@ export class NewConsultationComponent implements OnInit {
       horario: this.horario,
     } as Consultation;
 
-    await this.consultationService.addConsultation(payload).subscribe();
-
-    this.modalService.close('form-new-consultation');
+    await this.consultationService.addConsultation(payload).subscribe(()=> {
+      this.modalService.close('form-new-consultation');
+      this.modalService.open('alert-success-add-consultation');
+      this.refreshList.emit();
+    });
   }
 
 }
