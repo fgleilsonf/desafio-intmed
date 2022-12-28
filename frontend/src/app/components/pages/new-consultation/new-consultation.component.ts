@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output, SimpleChange } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { ModalService } from "../../../modal.service";
 import { Doctor } from "../../../Doctor";
 import { Agenda } from "../../../Agenda";
@@ -64,6 +64,10 @@ export class NewConsultationComponent implements OnInit {
   }
 
   async onConfirm() {
+    if (!this.doctor || !this.agenda || !this.specialtyId || !this.horario) {
+      return;
+    }
+
     const payload = {
       id: 0,
       medico: this.doctor,
