@@ -10,7 +10,7 @@
           type="text"
           placeholder="Nome"
           formControlName="name"
-          required
+          [required]="!isLogin"
         />
         <div
           *ngIf="authForm.controls['name'].invalid && (authForm.controls['name'].dirty || authForm.controls['name'].touched)"
@@ -62,7 +62,7 @@
           type="password"
           placeholder="Confirmar senha"
           formControlName="confirmPassword"
-          required
+          [required]="!isLogin"
         />
         <div
           *ngIf="authForm.controls['confirmPassword'].invalid && (authForm.controls['confirmPassword'].dirty || authForm.controls['confirmPassword'].touched)"
@@ -79,7 +79,8 @@
           title="{{isLogin ? 'Criar conta' : 'Cancelar'}}"
           [isLink]="true"></app-button>
 
-        <input type="submit" value="{{ isLogin ? 'Acessar' : 'Confirmar' }}"/>
+        <app-button
+          title="{{ isLogin ? 'Acessar' : 'Confirmar' }}" type="submit"></app-button>
       </div>
     </form>
   </div>

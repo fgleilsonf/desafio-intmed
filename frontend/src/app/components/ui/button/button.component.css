@@ -12,22 +12,47 @@ button {
   font-size: 14px;
 }
 
-.custom-button {
-  background: #49B4BB;
-  color: #FFFFFF;
-}
-
-.custom-link {
-  color: #49B4BB;
-  border: 0;
-  background: none;
-}
-
-.custom-link:hover {
-}
-
 span.icon {
   margin-right: 10px;
   font-size: 14px;
   margin-left: 10px;
+}
+
+button.custom-link {
+  background: none;
+  display: flex;
+  justify-content: center;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 40px;
+  width: 180px;
+  height: 40px;
+  color: #49B4BB;
+  text-decoration: none;
+  text-align: center;
+}
+
+button.custom-link:hover {
+  border: 1px solid #49B4BB;
+  border-radius: 8px;
+}
+
+button[type="submit"] {
+  width: 180px;
+  height: 40px;
+  background: #49B4BB;
+  border-radius: 8px;
+  cursor: pointer;
+  border: 1px solid #49B4BB;
+
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 21px;
+  color: #FFFFFF;
+}
+
+button[type="submit"]:hover {
+  border-color: #c3c3c3;
 }

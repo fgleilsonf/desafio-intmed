@@ -1,4 +1,4 @@
-import { Component, Output, EventEmitter } from '@angular/core';
+import { Component, Output, EventEmitter, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../auth.service';
 
@@ -10,10 +10,10 @@ import { AuthService } from '../auth.service';
 export class AuthComponent {
   @Output() setUser = new EventEmitter<string>();
   authForm = this.fb.group({
-    name: ['', Validators.required],
+    name: [''],
     username: ['', Validators.required],
     password: ['', Validators.required],
-    confirmPassword: ['', Validators.required],
+    confirmPassword: [''],
   });
   isLogin = true;
 
@@ -22,14 +22,27 @@ export class AuthComponent {
 
   changeViewSignSignUp() {
     this.isLogin = !this.isLogin;
+
+    if (this.isLogin) {
+      this.authForm.controls['name'].clearValidators();
+      this.authForm.controls['confirmPassword'].clearValidators();
+    } else {
+      this.authForm.controls['name'].setValidators([Validators.required]);
+      this.authForm.controls['confirmPassword'].setValidators([Validators.required]);
+    }
+
     this.authForm.reset();
   }
 
   onSubmit() {
+    console.log('onSubmit');
     if (this.authForm.invalid) {
+      console.log('onSubmit this.authForm.invalid', this.authForm.invalid);
       Object.keys(this.authForm.controls).forEach(field => {
+        console.log('onSubmit this.authForm.field', field);
         const control = this.authForm.get(field);
-        control?.markAsTouched({ onlySelf: true });
+        console.log('onSubmit this.authForm.control', control);
+        control?.markAsTouched({onlySelf: true});
       });
 
       return;

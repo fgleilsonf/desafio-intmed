@@ -12,6 +12,7 @@ export class ButtonComponent implements OnInit {
   @Input() isLink: boolean = false;
   @Input() title: string = '';
   @Input() icon: string = '';
+  @Input() type: string = 'button';
   constructor() {}
 
   ngOnInit(): void {}

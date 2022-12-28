@@ -47,25 +47,6 @@ select {
   color: #A8A8A8;
 }
 
-input[type="submit"] {
-  width: 180px;
-  height: 40px;
-  background: #49B4BB;
-  border-radius: 8px;
-  cursor: pointer;
-  border: 1px solid #49B4BB;
-
-  font-style: normal;
-  font-weight: 700;
-  font-size: 18px;
-  line-height: 21px;
-  color: #FFFFFF;
-}
-
-input[type="submit"]:hover {
-  border-color: #c3c3c3;
-}
-
 .invalid-feedback {
   width: 100%;
   margin-top: 0.25rem;
