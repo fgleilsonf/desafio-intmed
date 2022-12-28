@@ -81,6 +81,14 @@
               O campo confirmar senha é obrigatório!
             </div>
           </div>
+
+          <div
+            *ngIf="authForm.controls['confirmPassword'].invalid && (authForm.controls['confirmPassword'].dirty || authForm.controls['confirmPassword'].touched)"
+            class="invalid-feedback">
+            <div *ngIf="!authForm.controls['confirmPassword'].errors?.['required'] && authForm.controls['confirmPassword'].errors?.['matching']">
+              As senhas não conferem!
+            </div>
+          </div>
         </div>
       </div>
 

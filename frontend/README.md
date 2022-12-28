@@ -16,3 +16,7 @@ O fluxo para que o paciente possa marcar uma consulta deve seguir os seguintes p
 
 ## Utilizando API Medicar
 Você pode utilizar a sua API caso tenha sido desenvolvida, ou utilizar a nossa [aplicação de teste](https://github.com/Intmed-Software/desafio-mock-server) que imita o funcionamento de uma API real do Medicar.
+
+## TODO
+
+- [ ] Criar componente de senha (Ocultar/Exibir senha)

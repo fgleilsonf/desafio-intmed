@@ -1,7 +1,8 @@
-import { Component, Output, EventEmitter, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { Component, Output, EventEmitter } from '@angular/core';
+import { FormBuilder, Validators } from '@angular/forms';
 import { AuthService } from '../auth.service';
 import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
+import { matchValidator } from "../form-validators";
 
 @Component({
   selector: 'app-auth',
@@ -33,7 +34,8 @@ export class AuthComponent {
       this.authForm.controls['confirmPassword'].clearValidators();
     } else {
       this.authForm.controls['name'].setValidators([Validators.required]);
-      this.authForm.controls['confirmPassword'].setValidators([Validators.required]);
+      this.authForm.controls['password'].setValidators([Validators.required, matchValidator('confirmPassword', true)]);
+      this.authForm.controls['confirmPassword'].setValidators([Validators.required, matchValidator('password')]);
     }
 
     this.authForm.reset();
