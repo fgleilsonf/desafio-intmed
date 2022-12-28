@@ -1,10 +1,10 @@
-import {Injectable} from '@angular/core';
+import { Injectable } from '@angular/core';
 
-import {of} from 'rxjs';
-import {HttpClient} from '@angular/common/http';
-import {catchError, mergeMap} from 'rxjs/operators';
-import {JWTService} from './jwt.service';
-import {environment} from '../environments/environment';
+import { of } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
+import { catchError, mergeMap } from 'rxjs/operators';
+import { JWTService } from './jwt.service';
+import { environment } from '../environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -40,10 +40,11 @@ export class AuthService {
       );
   }
 
-  signup(username: string, password: string) {
+  signup(name: string, username: string, password: string) {
     const url = new URL('/users', environment.apiUrl).href;
     return this.http
       .post(url, {
+        name,
         username,
         password,
       })
