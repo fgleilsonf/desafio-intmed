@@ -7,7 +7,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
-import { HomeComponent } from './components/pages/home/home.component';
 import { NewConsultationComponent } from './components/pages/new-consultation/new-consultation.component';
 import { ListConsultationComponent } from './components/pages/list-consultation/list-consultation.component';
 import { AuthComponent } from './auth/auth.component';
@@ -25,7 +24,6 @@ import { InputPasswordComponent } from './components/ui/input-password/input-pas
     AppComponent,
     HeaderComponent,
     FooterComponent,
-    HomeComponent,
     NewConsultationComponent,
     ListConsultationComponent,
     AuthComponent,

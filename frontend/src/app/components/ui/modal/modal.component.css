@@ -70,6 +70,10 @@ div.actions {
   margin-top: 0.8rem;
 }
 
+div.actions button {
+  margin-right: 10px;
+}
+
 modal .btn-close {
   float: right;
   padding: 10px;
