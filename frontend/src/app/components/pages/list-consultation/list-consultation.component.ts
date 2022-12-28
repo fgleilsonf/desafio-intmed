@@ -3,7 +3,7 @@ import { ModalService } from "../../../modal.service";
 import { Specialty } from "../../../Specialty";
 import { Consultation } from "../../../Consultation";
 import { ConsultationService } from "../../../services/consultation.service";
-import { faBookMedical } from "@fortawesome/free-solid-svg-icons";
+import { faBookMedical, faPlus, faTimes } from "@fortawesome/free-solid-svg-icons";
 
 @Component({
   selector: 'app-list-consultation',
@@ -16,6 +16,8 @@ export class ListConsultationComponent implements OnInit {
   consultations: Consultation[] = [];
   currentItem: Consultation | null = null;
   loading: boolean = false;
+  faPlus = faPlus;
+  faTimes = faTimes;
   faBookMedical = faBookMedical;
 
   constructor(private modalService: ModalService, private consultationService: ConsultationService) {

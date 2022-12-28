@@ -11,8 +11,9 @@ export class ButtonComponent implements OnInit {
   @Output() handleClick: EventEmitter<any> = new EventEmitter();
   @Input() isLink: boolean = false;
   @Input() title: string = '';
-  @Input() icon: string = '';
+  @Input() icon!: any;
   @Input() type: string = 'button';
+  @Input() disabled!: boolean;
   constructor() {}
 
   ngOnInit(): void {}

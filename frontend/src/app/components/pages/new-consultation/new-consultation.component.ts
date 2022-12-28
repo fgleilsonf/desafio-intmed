@@ -28,6 +28,7 @@ export class NewConsultationComponent implements OnInit {
   horario: string = '';
   horarios: string[] = [];
   isDisabledHorario: boolean = true;
+  isDisable: boolean = true;
   @Output() refreshList: EventEmitter<any> = new EventEmitter();
 
   constructor(private modalService: ModalService, private consultationService: ConsultationService, private fb: FormBuilder) {
@@ -42,29 +43,36 @@ export class NewConsultationComponent implements OnInit {
     this.modalService.close(id);
   }
 
+  onChangeSpecialty(id: any) {
+    this.specialtyId = id;
+    this.isDisabledHorario = !(this.doctorId && this.specialtyId && this.agenda);
+    this.isDisable = this.formIsInvalid();
+  }
   onChangeDoctor(value: any) {
     this.doctor = value;
     this.doctorId = value.id;
     this.isDisabledHorario = !(this.doctorId && this.specialtyId && this.agenda);
-  }
-
-  onChangeSpecialty(id: any) {
-    this.specialtyId = id;
-    this.isDisabledHorario = !(this.doctorId && this.specialtyId && this.agenda);
+    this.isDisable = this.formIsInvalid();
   }
 
   onChangeAgenda(value: any) {
     this.agenda = value;
     this.horario = '';
     this.isDisabledHorario = !(this.doctorId && this.specialtyId && this.agenda);
+    this.isDisable = this.formIsInvalid();
   }
 
   onSelectHorario(value: any) {
     this.horario = value;
+    this.isDisable = this.formIsInvalid();
+  }
+
+  formIsInvalid() {
+    return !this.doctor || !this.agenda || !this.specialtyId || !this.horario;
   }
 
   async onConfirm() {
-    if (!this.doctor || !this.agenda || !this.specialtyId || !this.horario) {
+    if (this.formIsInvalid()) {
       return;
     }
 

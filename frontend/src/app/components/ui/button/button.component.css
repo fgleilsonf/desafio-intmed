@@ -7,17 +7,12 @@ button {
   font-weight: 600;
   border: 1px solid #FFFFFF;
   cursor: pointer;
-  border-radius: 4px;
   padding: 8px 12px;
   font-size: 14px;
   background: #49B4BB;
   color: #FFFFFF;
-}
 
-span.icon {
-  margin-right: 10px;
-  font-size: 14px;
-  margin-left: 10px;
+  border-radius: 8px;
 }
 
 button.custom-link {
@@ -54,4 +49,14 @@ button[type="submit"] {
 
 button[type="submit"]:hover {
   border-color: #c3c3c3;
+}
+
+.icon {
+  margin-right: 10px;
+  margin-left: 10px;
+  font-weight: 700;
+}
+
+button[disabled] {
+  background: #D9F1F3;
 }

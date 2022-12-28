@@ -33,7 +33,7 @@
 
   <div class="actions">
     <app-button (handleClick)="closeModal(keyModal)" title="Cancelar"></app-button>
-    <app-button (handleClick)="onConfirm()" title="Confirmar"></app-button>
+    <app-button (handleClick)="onConfirm()" [disabled]="isDisable" title="Confirmar"></app-button>
   </div>
 </modal>
 

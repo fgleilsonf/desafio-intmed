@@ -1,7 +1,7 @@
 <div class="header-title">
   <h1>Consulta Clínica</h1>
 
-  <app-button (handleClick)="openModal('form-new-consultation')" icon="+" title="Nova Consulta"></app-button>
+  <app-button (handleClick)="openModal('form-new-consultation')" [icon]="faPlus" title="Nova Consulta"></app-button>
 </div>
 
 <div>
@@ -29,7 +29,7 @@
       <td style="width: 20%">{{ consultation.horario }}</td>
       <td style="width: 15%">
         <app-button (handleClick)="showModalDialogDesmarcar('modal-dialog-desmarcar', consultation)"
-                    [isLink]="true" icon="X" title="Desmarcar"></app-button>
+                    [isLink]="true" [icon]="faTimes" title="Desmarcar"></app-button>
       </td>
     </tr>
   </table>
