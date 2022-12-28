@@ -1,14 +1,14 @@
-modal .modal-header {
+#form-new-consultation .modal-header {
   border-bottom: none !important;
 }
 
-modal .modal-header h3 {
+#form-new-consultation .modal-header h3 {
   font-weight: 700 !important;
   color: #444444;
-  font-size: 24px;
+  font-size: 20px;
 }
 
-modal .modal-body {
+#form-new-consultation .modal-body {
   margin-top: 10px;
   padding: 10px;
 }
