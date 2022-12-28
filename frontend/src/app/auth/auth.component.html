@@ -99,6 +99,7 @@
           [isLink]="true"></app-button>
 
         <app-button
+          [disabled]="authForm.invalid"
           title="{{ isLogin ? 'Acessar' : 'Confirmar' }}" type="submit"></app-button>
       </div>
     </form>
