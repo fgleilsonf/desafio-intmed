@@ -16,8 +16,8 @@ import { ButtonComponent } from './components/ui/button/button.component';
 import { SelectSpecialtyComponent } from './components/select-specialty/select-specialty.component';
 import { SelectDoctorComponent } from './components/select-doctor/select-doctor.component';
 import { SelectAgendaComponent } from './components/select-agenda/select-agenda.component';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { InputPasswordComponent } from './components/ui/input-password/input-password.component';
+import { FaIconLibrary, FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { faCoffee, fas } from '@fortawesome/free-solid-svg-icons';
 
 @NgModule({
   declarations: [
@@ -33,7 +33,6 @@ import { InputPasswordComponent } from './components/ui/input-password/input-pas
     SelectDoctorComponent,
     SelectAgendaComponent,
     SelectAgendaComponent,
-    InputPasswordComponent
   ],
   imports: [
     BrowserModule,
@@ -49,4 +48,9 @@ import { InputPasswordComponent } from './components/ui/input-password/input-pas
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+  constructor(library: FaIconLibrary) {
+    library.addIconPacks(fas);
+    library.addIcons(faCoffee);
+  }
+}

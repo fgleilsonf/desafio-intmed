@@ -1,6 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { SelectAgendaComponent } from './select-agenda.component';
+import { HttpClientTestingModule } from "@angular/common/http/testing";
+import { NO_ERRORS_SCHEMA } from "@angular/core";
 
 describe('SelectAgendaComponent', () => {
   let component: SelectAgendaComponent;
@@ -8,7 +10,9 @@ describe('SelectAgendaComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ SelectAgendaComponent ]
+      declarations: [ SelectAgendaComponent ],
+      imports: [HttpClientTestingModule],
+      schemas: [NO_ERRORS_SCHEMA]
     })
     .compileComponents();
 

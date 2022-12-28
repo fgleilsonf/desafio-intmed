@@ -1,6 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { SelectSpecialtyComponent } from './select-specialty.component';
+import { HttpClientTestingModule } from "@angular/common/http/testing";
+import { NO_ERRORS_SCHEMA } from "@angular/core";
 
 describe('SelectSpecialtyComponent', () => {
   let component: SelectSpecialtyComponent;
@@ -8,7 +10,9 @@ describe('SelectSpecialtyComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ SelectSpecialtyComponent ]
+      declarations: [ SelectSpecialtyComponent ],
+      imports: [HttpClientTestingModule],
+      schemas: [NO_ERRORS_SCHEMA]
     })
     .compileComponents();
 
